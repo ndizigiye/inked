@@ -1,10 +1,21 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:stitch.withgoogle.com)",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(mkdir -p ~/.claude/channels/telegram)",
+      "Bash(printf 'TELEGRAM_BOT_TOKEN=8611841847:AAGjUcbMusW6Ba6yP_mmsPD7oReoZpOTSOE\\\\n')",
+      "Bash(~/.claude/channels/telegram/.env)",
+      "Bash(chmod 600 ~/.claude/channels/telegram/.env)",
+      "Read(//c/Users/andizigi/.claude/channels/telegram/**)"
+    ],
     "additionalDirectories": [
       "C:\\Users\\andizigi\\Downloads\\inked"
-    ],
-    "allow": [
-      "Bash(npx create-next-app@latest:*)"
     ]
   }
 }
