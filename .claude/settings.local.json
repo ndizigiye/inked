@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "C:\\Users\\andizigi\\Downloads\\inked"
+    ],
+    "allow": [
+      "Bash(npx create-next-app@latest:*)"
+    ]
+  }
+}
