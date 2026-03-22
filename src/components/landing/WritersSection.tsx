@@ -22,44 +22,41 @@ export function WritersSection({ writers }: WritersSectionProps) {
       : PLACEHOLDER_WRITERS.map((w) => ({ ...w }));
 
   return (
-    <section className="py-24 bg-surface-container-lowest">
-      <div className="px-12 max-w-screen-2xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="font-headline text-4xl font-extrabold">
+    <section className="py-10 bg-surface-container-lowest">
+      <div className="px-8 max-w-[1920px] mx-auto">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="font-headline text-xl font-black tracking-widest uppercase">
             VOICES OF <span className="text-primary-container">INKED</span>
           </h2>
-          <div className="w-24 h-1 bg-primary-container mx-auto" />
+          <div className="flex-1 h-px bg-white/10" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
           {displayWriters.map((writer, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center space-y-4 group cursor-pointer"
+              className="flex flex-col items-center text-center space-y-2 group cursor-pointer"
             >
-              <div className="relative w-32 h-32">
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-1000" />
-                <div className="w-28 h-28 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden bg-surface-container">
-                  {writer.avatar_url ? (
-                    <img
-                      src={writer.avatar_url}
-                      alt={writer.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-surface-container-high">
-                      <span className="material-symbols-outlined text-on-surface-variant text-3xl">
-                        person
-                      </span>
-                    </div>
-                  )}
-                </div>
+              <div className="relative w-16 h-16">
+                <div className="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110" />
+                {writer.avatar_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={writer.avatar_url}
+                    alt={writer.name}
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full rounded-full flex items-center justify-center bg-surface-container-high">
+                    <span className="material-symbols-outlined text-on-surface-variant text-xl">person</span>
+                  </div>
+                )}
               </div>
               <div>
-                <p className="font-headline font-bold text-lg uppercase tracking-tight">
+                <p className="font-headline font-black text-[11px] uppercase tracking-tight leading-none">
                   {writer.name}
                 </p>
-                <p className="text-tertiary text-[10px] font-bold font-label">
+                <p className="text-tertiary text-[8px] font-black font-label mt-1">
                   {writer.reads}
                 </p>
               </div>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>inked - The Digital Manuscript</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-surface-variant": "#e2bfb0",
+                        "tertiary": "#9ccaff",
+                        "secondary": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#003257",
+                        "primary-fixed": "#ffdbcc",
+                        "on-secondary-container": "#b7b5b4",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-fixed": "#e4e2e1",
+                        "on-tertiary-fixed-variant": "#00497b",
+                        "primary-container": "#ff6b00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#3a3939",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-container": "#572000",
+                        "tertiary-container": "#059eff",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "secondary-container": "#474746",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed": "#001d35",
+                        "inverse-primary": "#a04100",
+                        "outline-variant": "#5a4136",
+                        "outline": "#a98a7d",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-secondary": "#303030",
+                        "on-primary-fixed": "#351000",
+                        "primary": "#ffb693",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "on-tertiary-container": "#003357",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#9ccaff",
+                        "tertiary-fixed": "#d0e4ff",
+                        "surface-tint": "#ffb693"
+                    },
+                    fontFamily: {
+                        "headline": ["Epilogue"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.1) 0%, rgba(13, 13, 13, 0) 70%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/90 backdrop-blur-[10px] border-b border-white/5">
+<div class="flex justify-between items-center px-8 py-3 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#ff6b00] tracking-tighter uppercase font-['Epilogue']">inked</span>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-6 font-['Epilogue'] tracking-tight text-xs uppercase font-bold">
+<a class="text-[#ff6b00] relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-[#ff6b00] after:rounded-full transition-all" href="#">Browse</a>
+<a class="text-[#ffb693] opacity-60 hover:opacity-100 transition-all" href="#">My Stories</a>
+<a class="text-[#ffb693] opacity-60 hover:opacity-100 transition-all" href="#">Collections</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-3 py-1 gap-2 border border-outline-variant/10 focus-within:border-primary-container transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-40 placeholder:text-on-surface-variant/40" placeholder="Search manuscripts..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-1.5 text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="bg-gradient-to-r from-primary-container to-[#7a3000] text-on-primary px-4 py-1.5 rounded text-[11px] font-black tracking-wider active:scale-95 duration-200 ease-in-out hover:shadow-[0_0_15px_rgba(255,107,0,0.2)] transition-all uppercase">
+                    Create Story
+                </button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant/30 cursor-pointer active:scale-95 transition-transform">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a writer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWy547mASYbUfWmclqweUGT228drDwgYjwHPfxmTLnZh4TG79PrQwfhp7R6tH7Bm8SQ7zMkOgrauNBlGche6LhOxugQZCoRSsUuOsRBg8xQMDDARdoqnHVono67l_MOmfEAf3uXSk2Qztto6wpOfkXpMeh0u-vZEspyfceXZGBa0Zbhwl_iLHfpKg4DkSORly3PMdwL4wpTHuHxMqVwe3lA8Sly3ReqGtCpmCAdly6arYaEqeVyIUGpAAxywZEXJDB6pWIPUKk6sc"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-14">
+<!-- Hero Section -->
+<section class="relative min-h-[45vh] flex items-center justify-center overflow-hidden px-6 py-8">
+<div class="hero-gradient absolute inset-0 z-0"></div>
+<div class="relative z-10 max-w-4xl w-full text-center space-y-4">
+<div class="space-y-2">
+<span class="text-primary font-label uppercase tracking-[0.5em] text-[10px] font-black block">The Digital Manuscript</span>
+<h1 class="font-headline text-4xl md:text-7xl font-black text-on-surface tracking-tighter leading-[0.9] text-glow">
+                    WRITE <span class="text-primary-container">BOLD.</span><br/>
+                    LIVE FOREVER.
+                </h1>
+<p class="max-w-md mx-auto font-body text-sm text-on-surface-variant leading-relaxed opacity-70">
+                    Join the next evolution of digital storytelling. A high-octane editorial space where every word is a performance.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+<button class="w-full sm:w-auto px-8 py-3 bg-gradient-to-br from-primary-container to-[#7a3000] text-on-primary font-headline font-black text-sm rounded hover:shadow-[0_0_30px_rgba(255,107,0,0.3)] transition-all active:scale-95">
+                    START WRITING
+                </button>
+<button class="w-full sm:w-auto px-8 py-3 bg-surface-container-highest/50 text-primary font-headline font-bold text-sm rounded border border-outline-variant/10 hover:bg-surface-bright transition-all">
+                    EXPLORE MANUSCRIPTS
+                </button>
+</div>
+</div>
+<!-- Subtle Elements -->
+<div class="absolute -left-10 bottom-4 w-40 h-52 bg-surface-container-low p-4 rounded-lg rotate-[-8deg] shadow-2xl hidden lg:block opacity-20 border border-white/5">
+<div class="w-full h-24 bg-surface-container rounded mb-3 overflow-hidden">
+<img alt="Ink and paper" class="w-full h-full object-cover opacity-40" data-alt="Close up of a fountain pen and paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgujEe5XMPt8pfVglnRfUhcv1FJNtt8r3BnLXeYP2WCvVWm1nblL436Cki3bnAWvim1IRatvS-ZOId3OMYSbiWVk4kNGqz-iJzjxpWA6vex2hE-mbf2rpl4GJYpN_y_emfiaLxtZxLTRP3OKrwnDwyQCBiGW9sTEcqwEthMC6GtpjyGG7VyWvZa1RHgtqvnZ7eajhMfWixkGjtUd27Axu2N3yk_a52gW0L_i1pvvQc3eMXcrTMtED_FGLPen6DjuL2pS0FoVB8EGk"/>
+</div>
+<div class="space-y-1.5">
+<div class="h-1.5 w-3/4 bg-primary-container/20 rounded"></div>
+<div class="h-1.5 w-full bg-primary-container/20 rounded"></div>
+</div>
+</div>
+</section>
+<!-- Featured Stories Section -->
+<section class="py-10 px-8 max-w-[1920px] mx-auto">
+<div class="flex justify-between items-end mb-6">
+<div class="space-y-1">
+<span class="text-tertiary font-label uppercase tracking-widest text-[9px] font-black">Curated Narratives</span>
+<h2 class="font-headline text-3xl font-black tracking-tight leading-none">FEATURED <span class="text-primary">STORIES</span></h2>
+</div>
+<a class="text-primary-fixed-dim font-label font-bold flex items-center gap-1.5 hover:text-primary transition-colors text-[11px] uppercase tracking-wider" href="#">
+                VIEW ARCHIVE <span class="material-symbols-outlined text-[16px]" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Main Feature -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-low rounded-lg h-[380px] border-b-2 border-transparent hover:border-primary-container transition-all cursor-pointer">
+<img alt="Cyberpunk city" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Atmospheric neon-lit cyberpunk city alleyway" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-RZdswQmHaQuIKe2NAJUIn0l0WtPLmS1xvXJdojSWSUnminkLRqeefxMu1oKTsYxaMdMQLodGnR6XqJoxq2f8J3tRKZKVxL1-1D7OkzVEPDJWeLp3VECosGtDCKPhGsRKFG92W1QhPooHeskh3R1F7Hc-vTzyrnZiIFz0Q_vN-mTpiLK8Td6P_woGax0D3K3SOgwW2mi0P2cfPIE10_RsGjtBd2J7KCOmZkimfmp7GZvSlYlOBsHqSdgykmft0FC6qgn0CRUCMHw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/40 to-transparent"></div>
+<div class="absolute bottom-0 p-6 space-y-2 w-full">
+<div class="flex gap-3 items-center mb-2">
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 text-[9px] font-black uppercase tracking-widest rounded">S-Tier Fiction</span>
+<span class="text-tertiary text-[10px] font-bold font-label flex items-center gap-1"><span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 12 MIN READ</span>
+</div>
+<h3 class="font-headline text-3xl font-black leading-tight max-w-lg">THE NEON MANUSCRIPT: A TALE OF TWO CODES</h3>
+<p class="text-on-surface-variant text-sm max-w-md line-clamp-1 opacity-70">In a world where memories are currency, one rogue writer finds the ultimate vault.</p>
+<div class="flex items-center gap-3 pt-2">
+<img alt="Author" class="w-8 h-8 rounded-full border border-white/10" data-alt="Profile of a male author" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6_HJ1ft8hFxIG4O_Y16399LEvCBafo26noqNhv0ALL0yTvA2Opr9S3r7Iq7Wb4z_RjxkQH8omNpHnkCUB03s2YmP3QlKjows5uONP0STRwv87dN8pvltu3cW-T8yKGcNZd7Ew0YGIhsFMRXGRyWq7Aq9WvyHyT-TaD1U3rfh9gLAnzSrMygTRz6fcTvdO4oyOPuBFjXMOHdVJaP-FtdvqJrzFqDG5Z2yE4e3Oc1EcIK9jsci8VpAFVqkyPYLKEdGnmm0z668-V2M"/>
+<div>
+<p class="font-bold text-[10px] tracking-tight uppercase leading-none">Elena Vane</p>
+<p class="text-tertiary text-[8px] font-bold tracking-widest uppercase mt-0.5">MASTER STORYTELLER</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Features -->
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="flex-1 bg-surface-container p-5 rounded-lg border-l-4 border-primary hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-center">
+<span class="text-tertiary text-[9px] font-black font-label tracking-widest block mb-2 uppercase">ESSAY</span>
+<h4 class="font-headline text-lg font-bold mb-3 leading-tight">The Architecture of Silence: Writing Between Lines</h4>
+<div class="flex items-center gap-2">
+<img alt="Author" class="w-6 h-6 rounded-full" data-alt="Portrait of a female author" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcQIUKfIJ_cW4q4Qmx9bx50RrMKmYbl-9dT8h7m2T4Tal-2Y02mVn1PbWbXKebUfQw9qOrJrbkQ5WDu7pWD1soNoOfWxOBO-JbRJ6x3W7VZpnXG0EqZxXHHmEYK5-7BrrXTCu6pWPosD_AULr3KhAFGxh__pFe_TyOVmuocVSIeMlr7SvE_tzBZtSdVO84p5XiZCH4rFn4RyLIAEeVzViIbRxa4CUvC5TLvt7AOiO7YMD2PugF_TF3aK6blVYVPu6fa18QP48eQZY"/>
+<span class="text-[10px] font-bold uppercase tracking-tight text-on-surface-variant">Julian Thorne</span>
+</div>
+</div>
+<div class="flex-1 bg-surface-container p-5 rounded-lg hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-center">
+<span class="text-tertiary text-[9px] font-black font-label tracking-widest block mb-2 uppercase">POETRY</span>
+<h4 class="font-headline text-lg font-bold mb-3 leading-tight">Obsidian Rhythms: Midnight Verse Collection</h4>
+<div class="flex items-center gap-2">
+<img alt="Author" class="w-6 h-6 rounded-full" data-alt="Portrait of a male poet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2l5J9tM8m2MEJ-8j-kzb694u0UbYPaoGi0Ll7i39wPoaRS0x9YNsAh2m2_TJrDiWSyQdES2fjfLMah8Crt3FCdSOtes-4rEH6yh5Zr3sgITctiyfv6x7wJRTb65-1ES98spNtP5rM1f_37u4ZkoLkiR3UkkUzLSAFe7FH4Qm2C5cYV5lu_-MWskps0CTruoURr0a_bEeb2drOJ6SctnZ1GWeBO3TRCznZgfjSR0bNE15vYtpRxrTpKGRoSwIGe1RJRs2U-nwso_Y"/>
+<span class="text-[10px] font-bold uppercase tracking-tight text-on-surface-variant">S. K. Morgan</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Writers Section -->
+<section class="py-10 bg-surface-container-lowest">
+<div class="px-8 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4 mb-8">
+<h2 class="font-headline text-xl font-black tracking-widest uppercase">VOICES OF <span class="text-primary-container">INKED</span></h2>
+<div class="flex-1 h-px bg-white/10"></div>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-6 gap-6">
+<!-- Writer 1 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdgL-oAzVsuuiFrtnyqo4hfpWSD9jFbwSlmGQxGTNjUawEDAYIgkSQIw_oOsejJlPThac-f8pWxzmgoX0rlXVqNFBp3mSOgHZxYoHA2HWO_gxMQfbmEyWfFo90fh78LkN_B5XcMLT06Ef7qlMUM_YKb3lqRxBWBIQz77ns7q7WhPWuZIVsDTWBMfZjjQfPMyFY325wm5_zX8GF-2W5bBx4a4zrSa18FfYd1f8veFfp8QCTleNMXCIMzSK26ITkzJDiXwSP435ZgN8"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">Marcus Gray</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">2.4M READS</p>
+</div>
+</div>
+<!-- Writer 2 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC--t9nN6e4FHu_pyEJYi0x2CJz_fxedkH00ssMf6_iBnWAR0nCl4p1D9IKKeLWa92oljfANo9RRMl89uTrFFnG-QeqV3NDoSEaHBGPi0bI9NZ6EVKGAOS095R0DbnvBgt9BfaCZLw87C1lig88EwIoPVq8QdJURRPJQSQ0YsiXQ_o_fNowJ947A9hdesXlM0Rb4ADMXpbp55yXfCGhmMIP8Y8a2A0ezKkEEJVp7ALCrZ87OdmKztMrhflJZEAyFKNyD5MFYdsblxM"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">Celia Wu</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">1.8M READS</p>
+</div>
+</div>
+<!-- Writer 3 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeVO86Z4GC6oK4r5LnuuIhbFQ0A6c7K96lybPuNGgSklH9Cwyp1gch5SpdUnwGc6-2-c-KJ6qzf4HTo9lDeuv6QgKCbNRuZd0PmSHRvZiOUev-sEfI5RoBHYzKfO5InJS0qa9c7AqfWFx1-o6j4H1nGRFHI41s2u2QkS6T7kRMYyOb_2TlY9PwDm-dmN8Ri9q1sQKVQeFbxapc_62Q0koS5JIiTH1Gr5BvOLyWEtnciElaYBoNQ6fFyVolEeQyjZnBygT7WZiMkNM"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">David Rossi</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">4.1M READS</p>
+</div>
+</div>
+<!-- Writer 4 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGyH0tLJLj0onEyyXJHvthrTDi10OhDUupRH8BCFnPU_7HKYVSwfFv5XVQ5KciuYOBu9C7tEUaDekd5DSriX0RdjOZ4vQkcGtiTGGAPz7GWzaiP5z3lOGXxuKAhGumK03oYHxSk_icmxW7cRWbtUV-oczheDTXNvlxJmffC0Sha6kNf9L7e6jSKuC4sopluzYOYnvGd06U7AG0jBVuHhvyxlhuszxXRV_nLwJoWoD4I6fsyJdwf3QKLsW5NNw_DF4FpZnEjFdg2Tw"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">Lia Thorne</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">920K READS</p>
+</div>
+</div>
+<!-- Writer 5 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz6Nb_JwsoNUhSOfYNHgLK5yDF-nxpVecqHSGIFslprhTSZ4jr_THSp1CXuaEU_pyZyrUGzjMkgMV49EO9o6MlTGWQAI_ESGdw_vpyTyDj2haO1gBJKcxLOqsZoA5-UcNu3nYdAvI6ticTNiTzLDWyq2tajkNDN_sl2Bx_uNMliKvsvd6mraeIfY9GWtijDktF_ErkIaFBsIwdnQUVFtoV2B-v0cAlW6e2QjGSmWDhJf3293YFds8roFRRhpcvZbMcT8Bd8kQjP0s"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">Amara Okafor</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">1.1M READS</p>
+</div>
+</div>
+<!-- Writer 6 -->
+<div class="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+<div class="relative w-16 h-16">
+<div class="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110"></div>
+<img alt="Writer" class="w-full h-full rounded-full object-cover" data-alt="Writer profile headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeaoxQfhNrWcBLKWk7GBqRZcQ7xDzazgY2bhV3L0heBk16ter0XlfwL8VkQvGlqMXVnDnKcsC5i97Z0PtSD3ubQV20olTlRa86DS6KdiY029UY3JGog097Psmv4OJneKnSSdWPIGyNtGqfO_9qugACZvSGprgS1A0HWaHSx8Sfs6ZzK8HCG4cHdPIAozJOAVItcniJvNzg0CZOx6S7sULlwz4gE-9lg82jF3uo17ZVWS1rQ-8FIdC59aypgfBoIcB7LfIw7R19IdM"/>
+</div>
+<div>
+<p class="font-headline font-black text-[11px] uppercase tracking-tighter leading-none">Sam Rivers</p>
+<p class="text-tertiary text-[8px] font-black font-label mt-1">3.5M READS</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-12 px-8 text-center">
+<div class="max-w-3xl mx-auto p-8 bg-surface-container rounded-2xl border border-white/5 space-y-4 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+<h2 class="font-headline text-3xl font-black leading-tight uppercase">YOUR LEGACY <span class="text-primary-container">STARTS HERE.</span></h2>
+<p class="text-on-surface-variant text-sm opacity-70 max-w-lg mx-auto">Stop archiving your thoughts in private docs. Give them the stage they deserve.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+<button class="px-8 py-3 bg-primary text-on-primary font-black uppercase tracking-widest text-[11px] hover:scale-105 transition-all rounded">SIGN UP FREE</button>
+<button class="px-8 py-3 bg-transparent border-2 border-outline-variant text-on-surface font-black uppercase tracking-widest text-[11px] hover:bg-surface-bright transition-all rounded">LEARN MORE</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#131313] w-full py-8 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 space-y-4 md:space-y-0 w-full max-w-[1920px] mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-black text-[#ffb693] opacity-50 uppercase tracking-tighter font-headline">inked</span>
+<p class="font-['Manrope'] text-[9px] uppercase tracking-[0.2em] text-[#9ccaff] opacity-40 mt-1">© 2024 inked. The Digital Manuscript.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 font-['Manrope'] text-[9px] uppercase tracking-widest font-black">
+<a class="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer" href="#">Terms</a>
+<a class="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer" href="#">Privacy</a>
+<a class="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer" href="#">Guidelines</a>
+<a class="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer" href="#">Help</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#ffb693] opacity-40 hover:opacity-100 cursor-pointer transition-opacity text-[18px]" data-icon="share">share</span>
+<span class="material-symbols-outlined text-[#ffb693] opacity-40 hover:opacity-100 cursor-pointer transition-opacity text-[18px]" data-icon="language">language</span>
+</div>
+</div>
+</footer>
+</body></html>

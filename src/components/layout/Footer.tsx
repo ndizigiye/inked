@@ -1,48 +1,48 @@
 export function Footer() {
   return (
-    <footer className="bg-surface w-full py-16 border-t border-outline-variant/15">
-      <div className="flex flex-col md:flex-row justify-between items-center px-12 space-y-8 md:space-y-0 w-full max-w-screen-2xl mx-auto">
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <span className="text-xl font-bold text-primary opacity-50 uppercase tracking-tighter font-headline">
+    <footer className="bg-[#131313] w-full py-8 border-t border-white/5">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 space-y-4 md:space-y-0 w-full max-w-[1920px] mx-auto">
+        <div className="flex flex-col items-center md:items-start">
+          <span className="text-lg font-black text-[#ffb693] opacity-50 uppercase tracking-tighter font-headline">
             inked
           </span>
-          <p className="font-label text-sm uppercase tracking-widest text-tertiary opacity-60">
+          <p className="font-label text-[9px] uppercase tracking-[0.2em] text-[#9ccaff] opacity-40 mt-1">
             © 2024 inked. The Digital Manuscript.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 font-label text-sm uppercase tracking-widest">
+        <div className="flex flex-wrap justify-center gap-4 font-label text-[9px] uppercase tracking-widest font-black">
           <a
             href="#"
-            className="text-tertiary opacity-60 hover:text-primary-container transition-colors cursor-pointer"
+            className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
-            Terms of Service
+            Terms
           </a>
           <a
             href="#"
-            className="text-tertiary opacity-60 hover:text-primary-container transition-colors cursor-pointer"
+            className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
-            Privacy Policy
+            Privacy
           </a>
           <a
             href="#"
-            className="text-tertiary opacity-60 hover:text-primary-container transition-colors cursor-pointer"
+            className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
-            Creative Guidelines
+            Guidelines
           </a>
           <a
             href="#"
-            className="text-tertiary opacity-60 hover:text-primary-container transition-colors cursor-pointer"
+            className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
-            Help Center
+            Help
           </a>
         </div>
 
-        <div className="flex gap-6">
-          <span className="material-symbols-outlined text-primary opacity-50 hover:opacity-100 cursor-pointer transition-opacity">
+        <div className="flex gap-4">
+          <span className="material-symbols-outlined text-[#ffb693] opacity-40 hover:opacity-100 cursor-pointer transition-opacity text-[18px]">
             share
           </span>
-          <span className="material-symbols-outlined text-primary opacity-50 hover:opacity-100 cursor-pointer transition-opacity">
+          <span className="material-symbols-outlined text-[#ffb693] opacity-40 hover:opacity-100 cursor-pointer transition-opacity text-[18px]">
             language
           </span>
         </div>

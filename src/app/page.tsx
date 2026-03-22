@@ -33,8 +33,8 @@ export default async function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <TopNavBar user={user} profile={profile} />
-      <main className="flex-1 pt-24">
-        <HeroSection />
+      <main className="flex-1 pt-14">
+        {!user && <HeroSection />}
         <BentoStoriesGrid stories={stories as StoryWithAuthor[]} />
         <WritersSection writers={writers} />
         <CTASection />

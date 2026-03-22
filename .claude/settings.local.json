@@ -12,7 +12,14 @@
       "Bash(printf 'TELEGRAM_BOT_TOKEN=8611841847:AAGjUcbMusW6Ba6yP_mmsPD7oReoZpOTSOE\\\\n')",
       "Bash(~/.claude/channels/telegram/.env)",
       "Bash(chmod 600 ~/.claude/channels/telegram/.env)",
-      "Read(//c/Users/andizigi/.claude/channels/telegram/**)"
+      "Read(//c/Users/andizigi/.claude/channels/telegram/**)",
+      "Bash(claude plugin:*)",
+      "mcp__stitch__list_projects",
+      "mcp__stitch__list_screens",
+      "mcp__stitch__get_screen",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "WebFetch(domain:lh3.googleusercontent.com)"
     ],
     "additionalDirectories": [
       "C:\\Users\\andizigi\\Downloads\\inked"

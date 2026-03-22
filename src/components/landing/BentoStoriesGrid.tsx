@@ -14,33 +14,33 @@ export function BentoStoriesGrid({ stories }: BentoStoriesGridProps) {
     : stories;
 
   return (
-    <section id="featured" className="py-24 px-12 max-w-screen-2xl mx-auto">
-      <div className="flex justify-between items-end mb-16">
-        <div className="space-y-2">
-          <span className="text-tertiary font-label uppercase tracking-widest text-xs font-bold">
+    <section id="featured" className="py-10 px-8 max-w-[1920px] mx-auto">
+      <div className="flex justify-between items-end mb-6">
+        <div className="space-y-1">
+          <span className="text-tertiary font-label uppercase tracking-widest text-[9px] font-black">
             Curated Narratives
           </span>
-          <h2 className="font-headline text-5xl font-extrabold tracking-tight">
+          <h2 className="font-headline text-3xl font-black tracking-tight leading-none">
             FEATURED <span className="text-primary">STORIES</span>
           </h2>
         </div>
         <Link
           href="/"
-          className="text-primary-fixed-dim font-label font-bold flex items-center gap-2 hover:text-primary transition-colors"
+          className="text-primary-fixed-dim font-label font-bold flex items-center gap-1.5 text-[11px] uppercase tracking-wider hover:text-primary transition-colors"
         >
           VIEW ARCHIVE{" "}
-          <span className="material-symbols-outlined">arrow_right_alt</span>
+          <span className="material-symbols-outlined text-[16px]">arrow_right_alt</span>
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
         {/* Main Feature */}
         {feature && (
           <FeatureCard story={feature} isPlaceholder={isPlaceholder} />
         )}
 
         {/* Secondary cards */}
-        <div className="md:col-span-4 flex flex-col gap-8">
+        <div className="md:col-span-4 flex flex-col gap-4">
           {secondary.slice(0, 2).map((story, i) => (
             <SecondaryCard
               key={isPlaceholder ? i : story.id}
@@ -78,49 +78,49 @@ function FeatureCard({
   return (
     <Link
       href={href}
-      className="md:col-span-8 group relative overflow-hidden bg-surface-container-low rounded-xl h-[600px] border-b-2 border-transparent hover:border-primary-container transition-all cursor-pointer block"
+      className="md:col-span-8 group relative overflow-hidden bg-surface-container-low rounded-lg h-[380px] border-b-2 border-transparent hover:border-primary-container transition-all cursor-pointer block"
     >
       {coverUrl ? (
         <img
           src={coverUrl}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+          className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-primary-container/20 to-surface-container" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/20 to-transparent" />
-      <div className="absolute bottom-0 p-12 space-y-4">
-        <div className="flex gap-4 items-center mb-6">
+      <div className="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/40 to-transparent" />
+      <div className="absolute bottom-0 p-6 space-y-2">
+        <div className="flex gap-3 items-center mb-2">
           {genre && (
-            <span className="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded">
+            <span className="bg-primary-container text-on-primary-container px-2 py-0.5 text-[9px] font-black uppercase tracking-widest rounded">
               {genre}
             </span>
           )}
           <span className="text-tertiary text-xs font-bold font-label flex items-center gap-1">
-            <span className="material-symbols-outlined text-[14px]">schedule</span>
+            <span className="material-symbols-outlined text-[12px]">schedule</span>
             {readTime} MIN READ
           </span>
         </div>
-        <h3 className="font-headline text-5xl font-black leading-tight max-w-2xl uppercase">
+        <h3 className="font-headline text-3xl font-black leading-tight max-w-lg uppercase">
           {title || "Untitled"}
         </h3>
         {excerpt && (
-          <p className="text-on-surface-variant text-lg max-w-xl line-clamp-2 opacity-80">
+          <p className="text-on-surface-variant text-sm max-w-md line-clamp-1 opacity-70">
             {excerpt}
           </p>
         )}
-        <div className="flex items-center gap-4 pt-4">
+        <div className="flex items-center gap-3 pt-2">
           {authorAvatar ? (
-            <img src={authorAvatar} alt={authorName} className="w-10 h-10 rounded-full object-cover" />
+            <img src={authorAvatar} alt={authorName} className="w-8 h-8 rounded-full object-cover border border-white/10" />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
               <span className="material-symbols-outlined text-on-surface-variant text-sm">person</span>
             </div>
           )}
           <div>
-            <p className="font-bold text-sm tracking-tight uppercase">{authorName}</p>
-            <p className="text-tertiary text-[10px] font-bold uppercase">{authorRole}</p>
+            <p className="font-bold text-[10px] tracking-tight uppercase leading-none">{authorName}</p>
+            <p className="text-tertiary text-[8px] font-bold tracking-widest uppercase mt-0.5">{authorRole}</p>
           </div>
         </div>
       </div>
@@ -147,25 +147,25 @@ function SecondaryCard({
   return (
     <Link
       href={href}
-      className={`flex-1 bg-surface-container p-8 rounded-xl hover:bg-surface-bright transition-all cursor-pointer block${accent ? " border-l-4 border-primary" : ""}`}
+      className={`flex-1 bg-surface-container p-5 rounded-lg hover:bg-surface-bright transition-all cursor-pointer block flex flex-col justify-center${accent ? " border-l-4 border-primary" : ""}`}
     >
       {genre && (
-        <span className="text-tertiary text-[10px] font-bold font-label tracking-widest block mb-4 uppercase">
+        <span className="text-tertiary text-[9px] font-black font-label tracking-widest block mb-2 uppercase">
           {genre}
         </span>
       )}
-      <h4 className="font-headline text-2xl font-bold mb-4 leading-snug uppercase">
+      <h4 className="font-headline text-lg font-bold mb-3 leading-tight uppercase">
         {title || "Untitled"}
       </h4>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
         {authorAvatar ? (
-          <img src={authorAvatar} alt={authorName} className="w-8 h-8 rounded-full object-cover" />
+          <img src={authorAvatar} alt={authorName} className="w-6 h-6 rounded-full object-cover" />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+          <div className="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center">
             <span className="material-symbols-outlined text-on-surface-variant text-xs">person</span>
           </div>
         )}
-        <span className="text-xs font-bold uppercase tracking-tight text-on-surface-variant">
+        <span className="text-[10px] font-bold uppercase tracking-tight text-on-surface-variant">
           {authorName}
         </span>
       </div>
