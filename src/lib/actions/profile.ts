@@ -51,6 +51,14 @@ export async function uploadAvatar(formData: FormData) {
   const file = formData.get("avatar") as File;
   if (!file || file.size === 0) return { error: "No file provided" };
 
+  const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
+  if (!ALLOWED_TYPES.includes(file.type)) {
+    return { error: "Only JPG, PNG, and WEBP images are allowed" };
+  }
+  if (file.size > 2 * 1024 * 1024) {
+    return { error: "File must be under 2 MB" };
+  }
+
   const ext = file.name.split(".").pop();
   const path = `${user.id}/avatar.${ext}`;
 

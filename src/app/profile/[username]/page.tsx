@@ -111,9 +111,9 @@ export default async function ProfilePage({ params }: PageProps) {
               </div>
               <div>
                 <p className="font-headline font-black text-2xl text-on-surface">
-                  {profile.total_reads >= 1000
-                    ? `${(profile.total_reads / 1000).toFixed(1)}K`
-                    : profile.total_reads}
+                  {(profile.total_reads ?? 0) >= 1000
+                    ? `${((profile.total_reads ?? 0) / 1000).toFixed(1)}K`
+                    : (profile.total_reads ?? 0)}
                 </p>
                 <p className="text-[9px] font-black uppercase tracking-widest text-on-surface-variant">
                   Reads
