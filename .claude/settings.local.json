@@ -19,7 +19,10 @@
       "mcp__stitch__get_screen",
       "WebFetch(domain:contribution.usercontent.google.com)",
       "mcp__plugin_playwright_playwright__browser_navigate",
-      "WebFetch(domain:lh3.googleusercontent.com)"
+      "WebFetch(domain:lh3.googleusercontent.com)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_click"
     ],
     "additionalDirectories": [
       "C:\\Users\\andizigi\\Downloads\\inked"

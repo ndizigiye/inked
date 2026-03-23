@@ -15,7 +15,7 @@ export function BentoStoriesGrid({ stories }: BentoStoriesGridProps) {
 
   return (
     <section id="featured" className="py-10 px-8 max-w-[1920px] mx-auto">
-      <div className="flex justify-between items-end mb-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 mb-6">
         <div className="space-y-1">
           <span className="text-tertiary font-label uppercase tracking-widest text-[9px] font-black">
             Curated Narratives
@@ -26,10 +26,10 @@ export function BentoStoriesGrid({ stories }: BentoStoriesGridProps) {
         </div>
         <Link
           href="/"
-          className="text-primary-fixed-dim font-label font-bold flex items-center gap-1.5 text-[11px] uppercase tracking-wider hover:text-primary transition-colors"
+          className="text-primary-fixed-dim font-label font-bold flex items-center gap-1.5 text-[11px] uppercase tracking-wider hover:text-primary transition-colors self-start sm:self-auto"
         >
           VIEW ARCHIVE{" "}
-          <span className="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_right_alt</span>
         </Link>
       </div>
 
@@ -98,7 +98,7 @@ function FeatureCard({
             </span>
           )}
           <span className="text-tertiary text-xs font-bold font-label flex items-center gap-1">
-            <span className="material-symbols-outlined text-[12px]">schedule</span>
+            <span className="material-symbols-outlined text-[12px]" aria-hidden="true">schedule</span>
             {readTime} MIN READ
           </span>
         </div>
@@ -115,7 +115,7 @@ function FeatureCard({
             <img src={authorAvatar} alt={authorName} className="w-8 h-8 rounded-full object-cover border border-white/10" />
           ) : (
             <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
-              <span className="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+              <span className="material-symbols-outlined text-on-surface-variant text-sm" aria-hidden="true">person</span>
             </div>
           )}
           <div>
@@ -162,7 +162,7 @@ function SecondaryCard({
           <img src={authorAvatar} alt={authorName} className="w-6 h-6 rounded-full object-cover" />
         ) : (
           <div className="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center">
-            <span className="material-symbols-outlined text-on-surface-variant text-xs">person</span>
+            <span className="material-symbols-outlined text-on-surface-variant text-xs" aria-hidden="true">person</span>
           </div>
         )}
         <span className="text-[10px] font-bold uppercase tracking-tight text-on-surface-variant">

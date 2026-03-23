@@ -48,12 +48,12 @@ export function WritersSection({ writers }: WritersSectionProps) {
                   />
                 ) : (
                   <div className="w-full h-full rounded-full flex items-center justify-center bg-surface-container-high">
-                    <span className="material-symbols-outlined text-on-surface-variant text-xl">person</span>
+                    <span className="material-symbols-outlined text-on-surface-variant text-xl" aria-hidden="true">person</span>
                   </div>
                 )}
               </div>
-              <div>
-                <p className="font-headline font-black text-[11px] uppercase tracking-tight leading-none">
+              <div className="w-full">
+                <p className="font-headline font-black text-[10px] uppercase tracking-tight leading-tight break-words hyphens-auto">
                   {writer.name}
                 </p>
                 <p className="text-tertiary text-[8px] font-black font-label mt-1">

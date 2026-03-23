@@ -9,7 +9,7 @@ export function StoryHeader({ story }: StoryHeaderProps) {
     <header className="mb-12 space-y-8">
       {/* Cover Image */}
       {story.cover_url && (
-        <div className="w-full aspect-[21/9] rounded-xl overflow-hidden mb-12">
+        <div className="w-full aspect-[21/9] rounded-xl overflow-hidden mb-12 bg-surface-container">
           <img
             src={story.cover_url}
             alt={story.title}
@@ -18,21 +18,17 @@ export function StoryHeader({ story }: StoryHeaderProps) {
         </div>
       )}
 
-      {/* Genre + Read Time */}
-      <div className="flex gap-4 items-center">
-        {story.genre && (
+      {/* Genre */}
+      {story.genre && (
+        <div className="flex gap-4 items-center">
           <span className="bg-primary-container text-on-primary-container px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded">
             {story.genre}
           </span>
-        )}
-        <span className="text-tertiary text-xs font-bold font-label flex items-center gap-1">
-          <span className="material-symbols-outlined text-sm">schedule</span>
-          {story.read_time_min} MIN READ
-        </span>
-      </div>
+        </div>
+      )}
 
       {/* Title */}
-      <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-tight text-on-surface uppercase">
+      <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter leading-tight text-on-surface">
         {story.title || "Untitled"}
       </h1>
 
@@ -53,7 +49,7 @@ export function StoryHeader({ story }: StoryHeaderProps) {
           />
         ) : (
           <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
-            <span className="material-symbols-outlined text-on-surface-variant">
+            <span className="material-symbols-outlined text-on-surface-variant" aria-hidden="true">
               person
             </span>
           </div>

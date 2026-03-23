@@ -10,7 +10,7 @@ export function SocialLoginButtons() {
         onClick={() => signInWithGoogle()}
         className="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-highest hover:bg-surface-bright transition-all border-b-2 border-transparent active:scale-95 duration-200 rounded"
       >
-        <span className="material-symbols-outlined text-on-surface-variant text-xl">
+        <span className="material-symbols-outlined text-on-surface-variant text-xl" aria-hidden="true">
           account_circle
         </span>
         <span className="text-sm font-bold uppercase tracking-wider">
@@ -20,9 +20,10 @@ export function SocialLoginButtons() {
       <button
         type="button"
         disabled
+        title="Coming soon"
         className="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-highest opacity-40 cursor-not-allowed transition-all border-b-2 border-transparent rounded"
       >
-        <span className="material-symbols-outlined text-on-surface-variant text-xl">
+        <span className="material-symbols-outlined text-on-surface-variant text-xl" aria-hidden="true">
           devices
         </span>
         <span className="text-sm font-bold uppercase tracking-wider">

@@ -20,6 +20,7 @@ const navLinks = [
 export function TopNavBar({ user, profile }: TopNavBarProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,6 +32,11 @@ export function TopNavBar({ user, profile }: TopNavBarProps) {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#131313]/90 backdrop-blur-[10px] border-b border-white/5">
@@ -66,6 +72,18 @@ export function TopNavBar({ user, profile }: TopNavBarProps) {
             })}
           </div>
         </div>
+
+        {/* Hamburger — mobile only */}
+        <button
+          className="md:hidden p-2 text-[#ffb693] opacity-70 hover:opacity-100 transition-opacity"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((o) => !o)}
+        >
+          <span className="material-symbols-outlined text-[22px]" aria-hidden="true">
+            {mobileOpen ? "close" : "menu"}
+          </span>
+        </button>
 
         {/* Right side */}
         <div className="flex items-center gap-4">
@@ -152,6 +170,37 @@ export function TopNavBar({ user, profile }: TopNavBarProps) {
           )}
         </div>
       </div>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-white/5 bg-[#131313]/95 backdrop-blur-[10px] px-6 py-4 flex flex-col gap-1">
+          {/* Search */}
+          <div className="flex items-center bg-surface-container rounded-full px-3 py-2 gap-2 border border-outline-variant/10 mb-3">
+            <span className="material-symbols-outlined text-on-surface-variant text-[18px]" aria-hidden="true">search</span>
+            <input
+              type="text"
+              placeholder="Search manuscripts..."
+              className="bg-transparent border-none focus:ring-0 text-xs flex-1 placeholder:text-on-surface-variant/40"
+            />
+          </div>
+          {navLinks.map(({ href, label }) => {
+            const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`py-3 text-sm font-bold uppercase tracking-wider font-['Epilogue'] border-b border-white/5 last:border-0 transition-colors ${
+                  isActive
+                    ? "text-[#ff6b00]"
+                    : "text-[#ffb693] opacity-60 hover:opacity-100"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 }

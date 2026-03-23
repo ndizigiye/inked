@@ -15,13 +15,13 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
           <Link
             href="/register"
-            className="px-8 py-3 bg-primary text-on-primary font-black text-[11px] uppercase tracking-widest hover:scale-105 transition-all rounded"
+            className="px-8 py-3 bg-gradient-to-r from-primary-container to-[#7a3000] text-on-primary font-black text-[11px] uppercase tracking-widest hover:shadow-[0_0_25px_rgba(255,107,0,0.35)] hover:scale-105 transition-all rounded"
           >
             SIGN UP FREE
           </Link>
           <Link
             href="/#featured"
-            className="px-8 py-3 bg-transparent border-2 border-outline-variant text-on-surface font-black text-[11px] uppercase tracking-widest hover:bg-surface-bright transition-all rounded"
+            className="px-8 py-3 bg-transparent border-2 border-white/25 text-on-surface font-black text-[11px] uppercase tracking-widest hover:border-white/50 hover:bg-surface-bright transition-all rounded"
           >
             LEARN MORE
           </Link>
