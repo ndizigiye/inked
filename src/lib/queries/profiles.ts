@@ -23,3 +23,17 @@ export async function getProfileById(id: string) {
   if (error) return null;
   return data;
 }
+
+export async function getProfileByUsername(
+  supabase: Awaited<ReturnType<typeof import("@/lib/supabase/server").createClient>>,
+  username: string
+) {
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("username", username)
+    .single();
+
+  if (error) return null;
+  return data;
+}
