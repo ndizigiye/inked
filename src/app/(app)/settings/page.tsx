@@ -141,10 +141,11 @@ export default function SettingsPage() {
 
             {/* Display name */}
             <div className="space-y-2">
-              <label className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
+              <label htmlFor="displayName" className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
                 Display Name
               </label>
               <input
+                id="displayName"
                 type="text"
                 value={displayName}
                 onChange={(e) => setDisplayName(e.target.value)}
@@ -157,14 +158,15 @@ export default function SettingsPage() {
             {/* Bio */}
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
+                <label htmlFor="bio" className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
                   Bio
                 </label>
-                <span className={`text-[10px] font-bold ${bio.length > MAX_BIO ? "text-error" : "text-on-surface-variant/50"}`}>
+                <span className={`text-[10px] font-bold ${bio.length >= MAX_BIO ? "text-tertiary" : "text-on-surface-variant/50"}`}>
                   {bio.length}/{MAX_BIO}
                 </span>
               </div>
               <textarea
+                id="bio"
                 value={bio}
                 onChange={(e) => setBio(e.target.value.slice(0, MAX_BIO))}
                 placeholder="A short bio about you..."
@@ -180,10 +182,11 @@ export default function SettingsPage() {
               Account
             </h2>
             <div className="space-y-2">
-              <label className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
+              <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest text-primary-fixed-dim">
                 Email
               </label>
               <input
+                id="email"
                 type="email"
                 value={email}
                 readOnly
