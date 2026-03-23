@@ -46,3 +46,46 @@ export async function getUserStories(userId: string) {
   if (error) throw error;
   return data ?? [];
 }
+
+export type BrowseSort = "latest" | "popular" | "short";
+export type BrowseGenre = string;
+
+export async function getBrowseStories(
+  genre: BrowseGenre = "all",
+  sort: BrowseSort = "latest"
+) {
+  const supabase = await createClient();
+  let query = supabase
+    .from("stories")
+    .select(`*, profiles (username, display_name, avatar_url)`)
+    .eq("status", "published");
+
+  if (genre !== "all") {
+    query = query.ilike("genre", genre);
+  }
+
+  if (sort === "latest") {
+    query = query.order("published_at", { ascending: false });
+  } else if (sort === "popular") {
+    query = query.order("view_count", { ascending: false });
+  } else {
+    query = query.order("read_time_min", { ascending: true });
+  }
+
+  const { data, error } = await query;
+  if (error) return [];
+  return data ?? [];
+}
+
+export async function getStoriesByUserId(userId: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("stories")
+    .select(`*, profiles (username, display_name, avatar_url)`)
+    .eq("author_id", userId)
+    .eq("status", "published")
+    .order("published_at", { ascending: false });
+
+  if (error) return [];
+  return data ?? [];
+}

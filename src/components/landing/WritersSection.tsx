@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
 import type { Profile } from "@/types";
 import { PLACEHOLDER_WRITERS } from "@/lib/placeholders";
 
@@ -11,6 +13,17 @@ function formatReads(n: number): string {
   return `${n} READS`;
 }
 
+const CardWrapper = ({ username, children }: { username?: string; children: ReactNode }) =>
+  username ? (
+    <Link href={`/profile/${username}`} className="flex flex-col items-center text-center space-y-2 group">
+      {children}
+    </Link>
+  ) : (
+    <div className="flex flex-col items-center text-center space-y-2 group cursor-pointer">
+      {children}
+    </div>
+  );
+
 export function WritersSection({ writers }: WritersSectionProps) {
   const displayWriters =
     writers.length > 0
@@ -18,8 +31,9 @@ export function WritersSection({ writers }: WritersSectionProps) {
           name: w.display_name ?? w.username,
           reads: formatReads(w.total_reads),
           avatar_url: w.avatar_url,
+          username: w.username as string | undefined,
         }))
-      : PLACEHOLDER_WRITERS.map((w) => ({ ...w }));
+      : PLACEHOLDER_WRITERS.map((w) => ({ ...w, username: undefined }));
 
   return (
     <section className="py-10 bg-surface-container-lowest">
@@ -33,10 +47,7 @@ export function WritersSection({ writers }: WritersSectionProps) {
 
         <div className="grid grid-cols-3 md:grid-cols-6 gap-6">
           {displayWriters.map((writer, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center text-center space-y-2 group cursor-pointer"
-            >
+            <CardWrapper key={i} username={writer.username}>
               <div className="relative w-16 h-16">
                 <div className="absolute inset-0 rounded-full border border-dashed border-primary-container group-hover:rotate-90 transition-transform duration-700 scale-110" />
                 {writer.avatar_url ? (
@@ -60,7 +71,7 @@ export function WritersSection({ writers }: WritersSectionProps) {
                   {writer.reads}
                 </p>
               </div>
-            </div>
+            </CardWrapper>
           ))}
         </div>
       </div>

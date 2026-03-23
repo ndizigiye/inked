@@ -30,7 +30,7 @@ export default function CollectionsPage() {
           </p>
           <div className="flex gap-4 justify-center">
             <Link
-              href="/"
+              href="/browse"
               className="px-8 py-3 bg-gradient-to-r from-primary-container to-on-primary-fixed-variant text-on-primary font-bold uppercase tracking-widest rounded-md hover:shadow-[0_0_20px_rgba(255,107,0,0.3)] transition-all"
             >
               Browse Stories

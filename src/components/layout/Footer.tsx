@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export function Footer() {
   const [copied, setCopied] = useState(false);
@@ -36,30 +37,30 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 font-label text-[9px] uppercase tracking-widest font-black">
-          <a
-            href="#"
+          <Link
+            href="/terms"
             className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
             Terms
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/privacy"
             className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
             Privacy
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/guidelines"
             className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
             Guidelines
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/help"
             className="text-[#9ccaff] opacity-40 hover:opacity-100 hover:text-[#ff6b00] transition-colors cursor-pointer"
           >
             Help
-          </a>
+          </Link>
         </div>
 
         <div className="flex gap-4 items-center relative">
