@@ -72,8 +72,8 @@ export default async function BrowsePage({ searchParams }: PageProps) {
                 </p>
                 <div className="flex flex-col gap-1">
                   {GENRES.map((g) => {
-                    const val = g.toLowerCase().replace("-", "-");
-                    const isActive = activeGenre === val || (val === "all" && activeGenre === "all");
+                    const val = g.toLowerCase();
+                    const isActive = activeGenre === val;
                     return (
                       <Link
                         key={g}
@@ -118,7 +118,7 @@ export default async function BrowsePage({ searchParams }: PageProps) {
               <div className="flex gap-2 overflow-x-auto pb-2 mb-3 scrollbar-none">
                 {GENRES.map((g) => {
                   const val = g.toLowerCase();
-                  const isActive = activeGenre === val || (val === "all" && activeGenre === "all");
+                  const isActive = activeGenre === val;
                   return (
                     <Link
                       key={g}
