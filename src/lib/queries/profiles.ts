@@ -24,10 +24,8 @@ export async function getProfileById(id: string) {
   return data;
 }
 
-export async function getProfileByUsername(
-  supabase: Awaited<ReturnType<typeof import("@/lib/supabase/server").createClient>>,
-  username: string
-) {
+export async function getProfileByUsername(username: string) {
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("profiles")
     .select("*")

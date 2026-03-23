@@ -48,13 +48,13 @@ export async function getUserStories(userId: string) {
 }
 
 export type BrowseSort = "latest" | "popular" | "short";
-export type BrowseGenre = string; // "all" or a specific genre value
+export type BrowseGenre = string;
 
 export async function getBrowseStories(
-  supabase: Awaited<ReturnType<typeof import("@/lib/supabase/server").createClient>>,
   genre: BrowseGenre = "all",
   sort: BrowseSort = "latest"
 ) {
+  const supabase = await createClient();
   let query = supabase
     .from("stories")
     .select(`*, profiles (username, display_name, avatar_url)`)
@@ -77,10 +77,8 @@ export async function getBrowseStories(
   return data ?? [];
 }
 
-export async function getStoriesByUserId(
-  supabase: Awaited<ReturnType<typeof import("@/lib/supabase/server").createClient>>,
-  userId: string
-) {
+export async function getStoriesByUserId(userId: string) {
+  const supabase = await createClient();
   const { data, error } = await supabase
     .from("stories")
     .select(`*, profiles (username, display_name, avatar_url)`)
