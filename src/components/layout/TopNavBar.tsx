@@ -12,7 +12,7 @@ interface TopNavBarProps {
 }
 
 const navLinks = [
-  { href: "/", label: "Browse" },
+  { href: "/browse", label: "Browse" },
   { href: "/dashboard", label: "My Stories" },
   { href: "/collections", label: "Collections" },
 ];
@@ -139,6 +139,14 @@ export function TopNavBar({ user, profile }: TopNavBarProps) {
                         {profile?.display_name ?? user.email}
                       </p>
                     </div>
+                    <Link
+                      href="/settings"
+                      className="w-full text-left px-4 py-2.5 text-sm text-on-surface hover:bg-surface-container-high transition-colors font-label flex items-center gap-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-base" aria-hidden="true">settings</span>
+                      Settings
+                    </Link>
                     <form action={signOut}>
                       <button
                         type="submit"
